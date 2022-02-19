@@ -44,15 +44,13 @@ const RiskMangment = () => {
 		if (valueVal > 100) {
 			setNote("يرجي كتابة قيمة اقل من 100");
 		} else if (valueVal > 10) {
-			setNote("ينصج بتقليل قيمة المخاطرة لاقل من 10%");
+			setNote("ينصح بتقليل قيمة المخاطرة لاقل من 10%");
 		} else {
 			setValue(valueVal);
-			setNote("");
 		}
 	};
 
 	const handleLose = (e) => {
-		setNote("");
 		const valueLo = e.target.value.replace(/\D/g, "");
 		if (valueLo >= 100) {
 			setNote("يرجي كتابة قيمة اقل من 100");
@@ -62,7 +60,6 @@ const RiskMangment = () => {
 	};
 
 	const handleTarget = (e) => {
-		setNote("");
 		const valueTar = e.target.value.replace(/\D/g, "");
 		if (valueTar >= 100) {
 			setNote("يرجي كتابة قيمة اقل من 100");
@@ -221,9 +218,9 @@ const RiskMangment = () => {
 							ملاحظات
 						</StatLabel>
 						<StatNumber color={"white"}>
-							{note}
+							<Text pb="3">{note}</Text>
 							{lose > target ? (
-								<Text>
+								<Text borderTop="1px solid #efefef42" pt="3">
 									ينصح بعدم دخول الصفقة نظرا لان نسبة المخاطرة مع المكسب هي
 									<Box
 										display="flex"
