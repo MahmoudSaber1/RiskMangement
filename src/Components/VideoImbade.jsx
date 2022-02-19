@@ -1,4 +1,4 @@
-import { AspectRatio, Box, Text } from "@chakra-ui/react";
+import { Box, Container, Text } from "@chakra-ui/react";
 import React from "react";
 
 const VideoImbade = () => {
@@ -10,15 +10,21 @@ const VideoImbade = () => {
 			display="flex"
 			alignItems="center"
 			justifyContent="center"
+			flexDirection="column"
 		>
-			<Text>طريقة الاستخدام</Text>
-			<AspectRatio maxW="560px" ratio={1}>
+			<Text mb={"10"}>طريقة الاستخدام</Text>
+			<Container maxW="full">
 				<iframe
-					src="https://www.youtube.com/embed/3HNyXCPDQ7Q"
+					id="ANyPxKoUKZAdIRPxzqD2r9cAQn5QOTVqwH2kT-p19aDFKU8JsJFtFXyV0YDvhve_oUM6NoexjpftC3Odv8aHy0wO9ZwrBtu_Pg"
+					width="100%"
+					height="415"
+					src="https://www.youtube.com/embed/GXGvypCr8Ug"
 					title="YouTube video player"
+					frameBorder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
 					allowFullScreen
 				></iframe>
-			</AspectRatio>
+			</Container>
 		</Box>
 	);
 };
