@@ -17,10 +17,15 @@ import {
 	StatLabel,
 	StatNumber,
 	Tag,
+	Text,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { newTitle } from "../GeneralFunc";
 import VideoImbade from "../Components/VideoImbade";
+
+const colorGreen = () => {
+	<Text style={{ color: "green" }}>1</Text>;
+};
 
 const RiskMangment = () => {
 	const [title, setTitle] = useState("");
@@ -30,7 +35,7 @@ const RiskMangment = () => {
 	const [note, setNote] = useState("");
 
 	const Exprision = (title * value) / lose;
-	const x = value / target;
+	const x = lose / target;
 
 	const handleTitle = (e) => {
 		const valueNum = e.target.value.replace(/\D/g, "");
@@ -212,7 +217,7 @@ const RiskMangment = () => {
 							حجم الصفقة
 						</StatLabel>
 						<StatNumber color={"white"}>
-							{isNaN(Exprision) ? 0 : Exprision}{" "}
+							{isNaN(Exprision) || Exprision === Infinity ? 0 : Exprision}{" "}
 						</StatNumber>
 					</Stat>
 					<Stat>
@@ -221,10 +226,26 @@ const RiskMangment = () => {
 						</StatLabel>
 						<StatNumber color={"white"}>
 							{note}
-							{value > target
-								? `ينصح بعدم دخول الصفقة نظرا لان نسبة المخاطرة مع المكسب هي
-			${x.toString().slice(0, 4)} : 1`
-								: ""}
+							{lose > target ? (
+								<Text>
+									ينصح بعدم دخول الصفقة نظرا لان نسبة المخاطرة مع المكسب هي
+									<Box
+										display="flex"
+										justifyContent="center"
+										flexDirection="row"
+									>
+										<Text color="red">
+											{x === Infinity ? "" : x.toString().slice(0, 4)}
+										</Text>
+										<Text mr={"5"} ml="5">
+											:
+										</Text>
+										<Text color="green"> 1 </Text>
+									</Box>
+								</Text>
+							) : (
+								""
+							)}
 						</StatNumber>
 					</Stat>
 				</Box>
