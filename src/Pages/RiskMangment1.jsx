@@ -20,7 +20,6 @@ import {
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { newTitle } from "../GeneralFunc";
-import { useToast } from "@chakra-ui/react";
 import VideoImbade from "../Components/VideoImbade";
 
 const RiskMangment = () => {
@@ -28,7 +27,7 @@ const RiskMangment = () => {
 	const [value, setValue] = useState("");
 	const [lose, setLose] = useState("");
 	const [target, setTarget] = useState("");
-	const toast = useToast();
+	const [note, setNote] = useState("");
 
 	const Exprision = (title * value) / lose;
 	const x = value / target;
@@ -39,51 +38,35 @@ const RiskMangment = () => {
 	};
 
 	const handleValue = (e) => {
+		setNote("");
 		const valueVal = e.target.value.replace(/\D/g, "");
 		if (valueVal > 100) {
-			toast({
-				title: "يرجي كتابة قيمة اقل من 100",
-				status: "error",
-				isClosable: true,
-				position: "top",
-			});
+			setNote("يرجي كتابة قيمة اقل من 100");
 		} else if (valueVal > 10) {
-			toast({
-				title: "ينصج بتقليل قيمة المخاطرة لاقل من 10%",
-				status: "error",
-				isClosable: true,
-				position: "top",
-			});
+			setNote("ينصج بتقليل قيمة المخاطرة لاقل من 10%");
 		} else {
-			setValue(`${valueVal}`);
+			setValue(valueVal);
+			setNote("");
 		}
 	};
 
 	const handleLose = (e) => {
+		setNote("");
 		const valueLo = e.target.value.replace(/\D/g, "");
 		if (valueLo >= 100) {
-			toast({
-				title: "يرجي كتابة قيمة اقل من 100",
-				status: "error",
-				isClosable: true,
-				position: "top",
-			});
+			setNote("يرجي كتابة قيمة اقل من 100");
 		} else {
-			setLose(`${valueLo}`);
+			setLose(valueLo);
 		}
 	};
 
 	const handleTarget = (e) => {
+		setNote("");
 		const valueTar = e.target.value.replace(/\D/g, "");
 		if (valueTar >= 100) {
-			toast({
-				title: "يرجي كتابة قيمة اقل من 100",
-				status: "error",
-				isClosable: true,
-				position: "top",
-			});
+			setNote("يرجي كتابة قيمة اقل من 100");
 		} else {
-			setTarget(`${valueTar}`);
+			setTarget(valueTar);
 		}
 	};
 
@@ -165,7 +148,7 @@ const RiskMangment = () => {
 							</Popover>
 						</FormLabel>
 						<InputGroup>
-							<Input id="lose" type="text" onChange={handleLose} />
+							<Input id="lose" type="text" value={lose} onChange={handleLose} />
 							<InputLeftElement>
 								<Tag>%</Tag>
 							</InputLeftElement>
@@ -187,7 +170,12 @@ const RiskMangment = () => {
 							</Popover>
 						</FormLabel>
 						<InputGroup>
-							<Input id="target" type="text" onChange={handleTarget} />
+							<Input
+								id="target"
+								type="text"
+								value={target}
+								onChange={handleTarget}
+							/>
 							<InputLeftElement>
 								<Tag>%</Tag>
 							</InputLeftElement>
@@ -206,16 +194,17 @@ const RiskMangment = () => {
 						<StatLabel color="#F2A900" fontSize={{ md: "20px", base: "14px" }}>
 							حجم الصفقة
 						</StatLabel>
-						<StatNumber>{isNaN(Exprision) ? 0 : Exprision}% </StatNumber>
+						<StatNumber>{isNaN(Exprision) ? 0 : Exprision} </StatNumber>
 					</Stat>
 					<Stat>
 						<StatLabel color="#F2A900" fontSize={{ md: "20px", base: "14px" }}>
 							ملاحظات
 						</StatLabel>
 						<StatNumber>
+							{note}
 							{value > target
-								? `ينصح بعدم دخول الصفقة نظرا لان نسبةالمخاطرة مع المكسب هي
-									${x.toString().slice(0, 3)} : 1`
+								? `ينصح بعدم دخول الصفقة نظرا لان نسبة المخاطرة مع المكسب هي
+			${x.toString().slice(0, 4)} : 1`
 								: ""}
 						</StatNumber>
 					</Stat>
