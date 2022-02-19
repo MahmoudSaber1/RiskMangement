@@ -80,7 +80,7 @@ const RiskMangment = () => {
 				h="100vh"
 				gap="5"
 				flexDirection={{ md: "row", base: "column" }}
-				mt="10"
+				mt={{ md: "100px", base: "0px" }}
 			>
 				<Box
 					boxShadow="dark-lg"
