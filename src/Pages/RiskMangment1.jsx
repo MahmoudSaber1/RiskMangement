@@ -23,10 +23,6 @@ import React, { useState } from "react";
 import { newTitle } from "../GeneralFunc";
 import VideoImbade from "../Components/VideoImbade";
 
-const colorGreen = () => {
-	<Text style={{ color: "green" }}>1</Text>;
-};
-
 const RiskMangment = () => {
 	const [title, setTitle] = useState("");
 	const [value, setValue] = useState("");
