@@ -4,7 +4,7 @@ import React from "react";
 const VideoImbade = () => {
 	return (
 		<Box
-			mt="30"
+			mt={{ md: "30px", base: "130px" }}
 			mb="100"
 			textAlign="center"
 			display="flex"
