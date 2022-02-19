@@ -106,7 +106,12 @@ const RiskMangment = () => {
 							</Popover>
 						</FormLabel>
 						<InputGroup>
-							<Input id="head" type="text" onChange={handleTitle} />
+							<Input
+								id="head"
+								type="text"
+								color={"white"}
+								onChange={handleTitle}
+							/>
 							<InputLeftElement></InputLeftElement>
 						</InputGroup>
 					</FormControl>
@@ -126,7 +131,12 @@ const RiskMangment = () => {
 							</Popover>
 						</FormLabel>
 						<InputGroup>
-							<Input id="value" type="text" onChange={handleValue} />
+							<Input
+								id="value"
+								color={"white"}
+								type="text"
+								onChange={handleValue}
+							/>
 							<InputLeftElement>
 								<Tag>%</Tag>
 							</InputLeftElement>
@@ -148,7 +158,13 @@ const RiskMangment = () => {
 							</Popover>
 						</FormLabel>
 						<InputGroup>
-							<Input id="lose" type="text" value={lose} onChange={handleLose} />
+							<Input
+								id="lose"
+								type="text"
+								color={"white"}
+								value={lose}
+								onChange={handleLose}
+							/>
 							<InputLeftElement>
 								<Tag>%</Tag>
 							</InputLeftElement>
@@ -174,6 +190,7 @@ const RiskMangment = () => {
 								id="target"
 								type="text"
 								value={target}
+								color={"white"}
 								onChange={handleTarget}
 							/>
 							<InputLeftElement>
@@ -194,13 +211,15 @@ const RiskMangment = () => {
 						<StatLabel color="#F2A900" fontSize={{ md: "20px", base: "14px" }}>
 							حجم الصفقة
 						</StatLabel>
-						<StatNumber>{isNaN(Exprision) ? 0 : Exprision} </StatNumber>
+						<StatNumber color={"white"}>
+							{isNaN(Exprision) ? 0 : Exprision}{" "}
+						</StatNumber>
 					</Stat>
 					<Stat>
 						<StatLabel color="#F2A900" fontSize={{ md: "20px", base: "14px" }}>
 							ملاحظات
 						</StatLabel>
-						<StatNumber>
+						<StatNumber color={"white"}>
 							{note}
 							{value > target
 								? `ينصح بعدم دخول الصفقة نظرا لان نسبة المخاطرة مع المكسب هي
