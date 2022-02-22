@@ -146,6 +146,7 @@ const RiskMangment = () => {
 									<Input
 										name="usdt"
 										type="number"
+										color={"white"}
 										value={inputField.usdt}
 										onChange={(event) => handelChangeInput1(index, event)}
 									/>
@@ -154,6 +155,7 @@ const RiskMangment = () => {
 									<Input
 										name="income"
 										type="number"
+										color={"white"}
 										value={inputField.income}
 										onChange={(event) => handelChangeInput2(index, event)}
 									/>
