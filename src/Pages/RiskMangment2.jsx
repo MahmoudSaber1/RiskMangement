@@ -23,6 +23,10 @@ const RiskMangment = () => {
 	const [expr3, setExpr3] = useState(0);
 	const [finall, setFinall] = useState(0);
 
+	console.log(expr1);
+	console.log(expr2);
+	console.log(expr3);
+
 	const handelChangeInput = (index, event) => {
 		const values = [...inputFields];
 		values[index][event.target.name] = event.target.value.replace(/\D/g, "");
@@ -63,6 +67,11 @@ const RiskMangment = () => {
 		setFinall(expr1 / (expr2 + expr3));
 	};
 
+	const handelRemoveInputs = (index) => {
+		const values = [...inputFields];
+		values.splice(index, 1);
+		setInputFields(values);
+	};
 	newTitle("Average income");
 	return (
 		<>
@@ -151,11 +160,19 @@ const RiskMangment = () => {
 								variant="solid"
 								color="#F2A900"
 								fontSize={{ md: "20px", base: "14px" }}
-								onClick={() => handelCalcInputs()}
+								onClick={() => handelRemoveInputs()}
 							>
-								الناتج
+								حذف حقل
 							</Button>
 						</Box>
+						<Button
+							variant="solid"
+							color="#F2A900"
+							fontSize={{ md: "20px", base: "14px" }}
+							onClick={() => handelCalcInputs()}
+						>
+							الناتج
+						</Button>
 					</Box>
 					<Box
 						boxShadow="dark-lg"
@@ -172,7 +189,9 @@ const RiskMangment = () => {
 							>
 								متوسط دخولك
 							</StatLabel>
-							<StatNumber color={"white"}>{finall}</StatNumber>
+							<StatNumber color={"white"}>
+								{isNaN(finall) ? 0 : finall}
+							</StatNumber>
 						</Stat>
 					</Box>
 				</Box>
@@ -181,4 +200,4 @@ const RiskMangment = () => {
 	);
 };
 
-export default RiskMangment;
+export default React.memo(RiskMangment);
