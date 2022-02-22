@@ -68,7 +68,7 @@ const RiskMangment = () => {
 		}
 	};
 
-	newTitle("Risk Mangement Tools");
+	newTitle("ادارة المخاطر");
 	return (
 		<Container maxW="full">
 			<Box

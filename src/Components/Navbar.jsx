@@ -15,12 +15,12 @@ const Navbar = () => {
 				>
 					<Link to="/">
 						<Button variant="ghost" color="#F2A900">
-							Risk Mangement
+							ادارة المخاطر
 						</Button>
 					</Link>
 					<Link to="/risk">
 						<Button variant="ghost" color="#F2A900">
-							Average income
+							وسط الدخول
 						</Button>
 					</Link>
 				</Box>

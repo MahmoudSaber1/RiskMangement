@@ -34,11 +34,11 @@ const RiskMangment = () => {
 	const handelChangeInput1 = (index, event) => {
 		const values = [...inputFields];
 
-		values[index][event.target.name] = event.target.value.replace(/\D/g, "");
+		values[index][event.target.name] = event.target.value;
 		setInputFields(values);
 
 		// Sum All USDT
-		const sumVal = parseInt(
+		const sumVal = parseFloat(
 			(values[index][event.target.usdt] = event.target.value)
 		);
 
@@ -51,14 +51,14 @@ const RiskMangment = () => {
 	const handelChangeInput2 = (index, event) => {
 		const values = [...inputFields];
 
-		values[index][event.target.name] = event.target.value.replace(/\D/g, "");
+		values[index][event.target.name] = event.target.value;
 		setInputFields(values);
 
 		// Sum All USDT
 		const sumVal1 = expr3;
 
 		// Get Value From USDT And Enter And Make That Algorithm (usdt / enter)
-		const sumVal2 = parseInt(
+		const sumVal2 = parseFloat(
 			(values[index][event.target.income] = event.target.value)
 		);
 
@@ -85,7 +85,7 @@ const RiskMangment = () => {
 		values.splice(index, 1);
 		setInputFields(values);
 	};
-	newTitle("Average income");
+	newTitle("وسط الدخول");
 	return (
 		// UI Design
 		<>
@@ -131,7 +131,7 @@ const RiskMangment = () => {
 									mb="6"
 									textAlign="center"
 								>
-									سعر الدخل
+									سعر الدخول
 								</Heading>
 							</Box>
 						</Box>
@@ -145,7 +145,7 @@ const RiskMangment = () => {
 								<FormControl mb="5">
 									<Input
 										name="usdt"
-										type="number"
+										type="text"
 										color={"white"}
 										value={inputField.usdt}
 										onChange={(event) => handelChangeInput1(index, event)}
@@ -154,7 +154,7 @@ const RiskMangment = () => {
 								<FormControl mb="5">
 									<Input
 										name="income"
-										type="number"
+										type="text"
 										color={"white"}
 										value={inputField.income}
 										onChange={(event) => handelChangeInput2(index, event)}
