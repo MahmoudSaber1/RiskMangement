@@ -20,7 +20,7 @@ const Navbar = () => {
 					</Link>
 					<Link to="/risk">
 						<Button variant="ghost" color="#F2A900">
-							Risk Mangement Tools
+							Average income
 						</Button>
 					</Link>
 				</Box>
