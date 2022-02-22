@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {
 	Box,
 	Button,
@@ -18,55 +19,67 @@ const RiskMangment = () => {
 		{ usdt: "", income: "" },
 		{ usdt: "", income: "" },
 	]);
+
+	// Expr1 For Sum All USDT
 	const [expr1, setExpr1] = useState(0);
+	// Expr2 For USDT / ENTER
 	const [expr2, setExpr2] = useState(0);
 	const [expr3, setExpr3] = useState(0);
+
+	const [expr4, setExpr4] = useState(0);
+	// Finall For Stored All Data And Make Algorithme
 	const [finall, setFinall] = useState(0);
 
-	console.log(expr1);
-	console.log(expr2);
-	console.log(expr3);
-
-	const handelChangeInput = (index, event) => {
+	// Get Input Value and Make All Exprisions
+	const handelChangeInput1 = (index, event) => {
 		const values = [...inputFields];
+
 		values[index][event.target.name] = event.target.value.replace(/\D/g, "");
 		setInputFields(values);
 
+		// Sum All USDT
 		const sumVal = parseInt(
 			(values[index][event.target.usdt] = event.target.value)
 		);
 
-		const sumVal1 = parseInt(
-			(values[index][event.target.usdt] = event.target.value)
-		);
+		setExpr3(sumVal);
 
+		// Storege Data to Expr1
+		setExpr1(expr1 + sumVal);
+	};
+
+	const handelChangeInput2 = (index, event) => {
+		const values = [...inputFields];
+
+		values[index][event.target.name] = event.target.value.replace(/\D/g, "");
+		setInputFields(values);
+
+		// Sum All USDT
+		const sumVal1 = expr3;
+
+		// Get Value From USDT And Enter And Make That Algorithm (usdt / enter)
 		const sumVal2 = parseInt(
 			(values[index][event.target.income] = event.target.value)
 		);
 
-		const sumVal4 = parseInt(
-			(values[index][event.target.usdt] = event.target.value)
-		);
+		const Equal = sumVal1 / sumVal2;
+		// Storege Data to Expr2
+		setExpr2(Equal);
 
-		const sumVal5 = parseInt(
-			(values[index][event.target.income] = event.target.value)
-		);
-
-		setExpr1(expr1 + sumVal);
-
-		setExpr2(sumVal1 / sumVal2);
-
-		setExpr3(sumVal4 / sumVal5);
+		setExpr4(expr2 + Equal);
 	};
 
+	// Handel Add Input Fields
 	const handelAddInputs = () => {
 		setInputFields([...inputFields, { usdt: "", income: "" }]);
 	};
 
+	// Handel Clac Button , Get All outPut and Make a Exprision Or Algorithme
 	const handelCalcInputs = () => {
-		setFinall(expr1 / (expr2 + expr3));
+		setFinall(expr1 / expr4);
 	};
 
+	// Handel Remove Input Fields
 	const handelRemoveInputs = (index) => {
 		const values = [...inputFields];
 		values.splice(index, 1);
@@ -74,6 +87,7 @@ const RiskMangment = () => {
 	};
 	newTitle("Average income");
 	return (
+		// UI Design
 		<>
 			<Container maxW="full">
 				<Box
@@ -131,17 +145,17 @@ const RiskMangment = () => {
 								<FormControl mb="5">
 									<Input
 										name="usdt"
-										type="text"
+										type="number"
 										value={inputField.usdt}
-										onChange={(event) => handelChangeInput(index, event)}
+										onChange={(event) => handelChangeInput1(index, event)}
 									/>
 								</FormControl>
 								<FormControl mb="5">
 									<Input
 										name="income"
-										type="text"
+										type="number"
 										value={inputField.income}
-										onChange={(event) => handelChangeInput(index, event)}
+										onChange={(event) => handelChangeInput2(index, event)}
 									/>
 								</FormControl>
 							</Box>
@@ -190,7 +204,7 @@ const RiskMangment = () => {
 								متوسط دخولك
 							</StatLabel>
 							<StatNumber color={"white"}>
-								{isNaN(finall) ? 0 : finall}
+								{isNaN(finall) ? 0 : finall.toString().slice(0, 7)}
 							</StatNumber>
 						</Stat>
 					</Box>
