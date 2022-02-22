@@ -20,6 +20,7 @@ const RiskMangment = () => {
 	]);
 	const [expr1, setExpr1] = useState(0);
 	const [expr2, setExpr2] = useState(0);
+	const [expr3, setExpr3] = useState(0);
 	const [finall, setFinall] = useState(0);
 
 	const handelChangeInput = (index, event) => {
@@ -39,22 +40,27 @@ const RiskMangment = () => {
 			(values[index][event.target.income] = event.target.value)
 		);
 
+		const sumVal4 = parseInt(
+			(values[index][event.target.usdt] = event.target.value)
+		);
+
+		const sumVal5 = parseInt(
+			(values[index][event.target.income] = event.target.value)
+		);
+
 		setExpr1(expr1 + sumVal);
 
 		setExpr2(sumVal1 / sumVal2);
 
-		setFinall(expr1 / (expr2 + expr2));
+		setExpr3(sumVal4 / sumVal5);
 	};
 
 	const handelAddInputs = () => {
 		setInputFields([...inputFields, { usdt: "", income: "" }]);
 	};
 
-	const handelRemoveInputs = (index) => {
-		const values = [...inputFields];
-		values.splice(index, 1);
-		setInputFields(values);
-		console.log(values);
+	const handelCalcInputs = () => {
+		setFinall(expr1 / (expr2 + expr3));
 	};
 
 	newTitle("Average income");
@@ -143,11 +149,11 @@ const RiskMangment = () => {
 							</Button>
 							<Button
 								variant="solid"
-								color="#ee7171"
+								color="#F2A900"
 								fontSize={{ md: "20px", base: "14px" }}
-								onClick={() => handelRemoveInputs()}
+								onClick={() => handelCalcInputs()}
 							>
-								حذف حقل
+								الناتج
 							</Button>
 						</Box>
 					</Box>
