@@ -20,7 +20,7 @@ const Navbar = () => {
 					</Link>
 					<Link to="/risk">
 						<Button variant="ghost" color="#F2A900">
-							وسط الدخول
+							متوسط الدخول
 						</Button>
 					</Link>
 				</Box>

@@ -85,7 +85,7 @@ const RiskMangment = () => {
 		values.splice(index, 1);
 		setInputFields(values);
 	};
-	newTitle("وسط الدخول");
+	newTitle("متوسط الدخول");
 	return (
 		// UI Design
 		<>
