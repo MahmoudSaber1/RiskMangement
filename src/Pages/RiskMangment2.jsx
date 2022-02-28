@@ -20,63 +20,54 @@ const RiskMangment = () => {
 		{ usdt: "", income: "" },
 	]);
 
-	// Expr1 For Sum All USDT
-	const [expr1, setExpr1] = useState(0);
-	// Expr2 For USDT / ENTER
-	const [expr2, setExpr2] = useState(0);
-	const [expr3, setExpr3] = useState(0);
+	const [inputsUsdt, setInputsUsdt] = useState([]);
 
-	const [expr4, setExpr4] = useState(0);
-	// Finall For Stored All Data And Make Algorithme
+	const [inputsIncom, setInputsIncom] = useState([]);
+
+	const [sum, setSum] = useState(0);
+	const [stored, setStored] = useState(0);
 	const [finall, setFinall] = useState(0);
 
 	// Get Input Value and Make All Exprisions
-	const handelChangeInput1 = (index, event) => {
+	const handelChangeInput1 = (index, e) => {
 		const values = [...inputFields];
 
-		values[index][event.target.name] = event.target.value;
+		values[index][e.target.name] = e.target.value;
 		setInputFields(values);
 
+		const targVal = parseFloat((values[index][e.target.usdt] = e.target.value));
+
+		setInputsUsdt(targVal);
+
 		// Sum All USDT
-		const sumVal = parseFloat(
-			(values[index][event.target.usdt] = event.target.value)
-		);
-
-		setExpr3(sumVal);
-
-		// Storege Data to Expr1
-		setExpr1(expr1 + sumVal);
+		setSum(inputsUsdt + targVal);
 	};
 
-	const handelChangeInput2 = (index, event) => {
+	// Get Input Value and Make All Exprisions
+	const handelChangeInput2 = (index, e) => {
 		const values = [...inputFields];
 
-		values[index][event.target.name] = event.target.value;
+		values[index][e.target.name] = e.target.value;
 		setInputFields(values);
 
-		// Sum All USDT
-		const sumVal1 = expr3;
+		const ValUsdt = inputsUsdt;
 
-		// Get Value From USDT And Enter And Make That Algorithm (usdt / enter)
-		const sumVal2 = parseFloat(
-			(values[index][event.target.income] = event.target.value)
+		const targVal = parseFloat(
+			(values[index][e.target.income] = e.target.value)
 		);
 
-		const Equal = sumVal1 / sumVal2;
-		// Storege Data to Expr2
-		setExpr2(Equal);
+		setInputsIncom(targVal);
 
-		setExpr4(expr2 + Equal);
+		// Get Value From USDT And Enter And Make That Algorithm (usdt / enter)
+		const sumAll = ValUsdt / inputsIncom;
+
+		// Storege Data to Expr2
+		setStored(sumAll);
 	};
 
 	// Handel Add Input Fields
 	const handelAddInputs = () => {
 		setInputFields([...inputFields, { usdt: "", income: "" }]);
-	};
-
-	// Handel Clac Button , Get All outPut and Make a Exprision Or Algorithme
-	const handelCalcInputs = () => {
-		setFinall(expr1 / expr4);
 	};
 
 	// Handel Remove Input Fields
@@ -85,6 +76,12 @@ const RiskMangment = () => {
 		values.splice(index, 1);
 		setInputFields(values);
 	};
+
+	// Handel Clac Button , Get All outPut and Make a Exprision Or Algorithme
+	const handelCalcInputs = () => {
+		setFinall(inputsUsdt / stored);
+	};
+
 	newTitle("متوسط الدخول");
 	return (
 		// UI Design
@@ -140,7 +137,7 @@ const RiskMangment = () => {
 								key={index}
 								display="flex"
 								justifyContent="space-between"
-								gap="5"
+								gap={{ sm: "5", base: "1" }}
 							>
 								<FormControl mb="5">
 									<Input
@@ -148,7 +145,7 @@ const RiskMangment = () => {
 										type="text"
 										color={"white"}
 										value={inputField.usdt}
-										onChange={(event) => handelChangeInput1(index, event)}
+										onChange={(e) => handelChangeInput1(index, e)}
 									/>
 								</FormControl>
 								<FormControl mb="5">
@@ -157,7 +154,7 @@ const RiskMangment = () => {
 										type="text"
 										color={"white"}
 										value={inputField.income}
-										onChange={(event) => handelChangeInput2(index, event)}
+										onChange={(e) => handelChangeInput2(index, e)}
 									/>
 								</FormControl>
 							</Box>
