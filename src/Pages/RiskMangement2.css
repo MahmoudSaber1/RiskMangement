@@ -1,0 +1,86 @@
+/* Google Fonts */
+
+/* Global Rules */
+:root {
+  --bg-color: #191f2a;
+  --main-color: #f2a900;
+  --shadow: 0px 5px 15px #10141b;
+}
+
+body {
+  background-color: var(--bg-color);
+}
+
+.col-xs-6 {
+  flex: 0 0 auto;
+  width: 50%;
+}
+
+/* Avarage Income */
+.avarage {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.avarage .box {
+  box-shadow: var(--shadow);
+  padding: 20px;
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  .avarage .box {
+    padding: 8px;
+  }
+}
+
+.avarage .box .headers {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.avarage .box .headers h2 {
+  color: var(--main-color);
+}
+
+@media (max-width: 576px) {
+  .avarage .box .headers h2 {
+    font-size: 16px;
+  }
+}
+
+.avarage .box .calc {
+  color: var(--main-color);
+  background-color: #3e434c;
+  border-color: #3e434c;
+}
+
+.avarage .box > h2 {
+  color: var(--main-color);
+  margin-bottom: 20px;
+}
+
+@media (max-width: 576px) {
+  .avarage .box > h2 {
+    font-size: 16px;
+  }
+}
+
+.avarage .box > span {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.avarage input,
+.form-control:focus {
+  color: var(--main-color);
+  background-color: var(--bg-color);
+  border: none;
+  outline: none;
+  box-shadow: var(--shadow);
+}
