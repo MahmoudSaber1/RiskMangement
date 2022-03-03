@@ -63,7 +63,7 @@ $(document).ready(function () {
 		let sumUsdtOnIncome = 0;
 		let finallyAvarage = 0;
 
-		for (i = 1; i < counter; i++) {
+		for (var i = 1; i < counter; i++) {
 			// Get All Value
 			let usdtQ = parseFloat($("#usdt" + i).val());
 			let icomeQ = parseFloat($("#income" + i).val());
@@ -77,8 +77,11 @@ $(document).ready(function () {
 			//   Finall Result
 			finallyAvarage = sumAllUsdt / sumUsdtOnIncome;
 		}
-
 		$("#output").empty();
-		$("#output").append(finallyAvarage.toString().slice(0, 7));
+		if (isNaN(finallyAvarage)) {
+			$("#output").append("0");
+		} else {
+			$("#output").append(finallyAvarage.toString().slice(0, 7));
+		}
 	});
 });
