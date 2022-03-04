@@ -18,11 +18,11 @@ const Navbar = () => {
 							ادارة المخاطر
 						</Button>
 					</Link>
-					<a href="https://avarage-income.netlify.app/">
+					<Link to="/risk">
 						<Button variant="ghost" color="#F2A900">
 							متوسط الدخول
 						</Button>
-					</a>
+					</Link>
 				</Box>
 			</Container>
 		</Box>
