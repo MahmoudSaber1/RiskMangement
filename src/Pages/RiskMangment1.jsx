@@ -81,7 +81,7 @@ const RiskMangment = () => {
 				mt={{ md: "0px", base: "130px" }}
 			>
 				<Box
-					boxShadow="dark-lg"
+					boxShadow="2xl"
 					p="10"
 					gap="5"
 					display="flex"
@@ -89,14 +89,14 @@ const RiskMangment = () => {
 					w={{ md: "full", base: "full" }}
 				>
 					<FormControl>
-						<FormLabel htmlFor="head" color="#F2A900">
+						<FormLabel htmlFor="head" color="#000">
 							رأس المال
 							<Popover>
 								<PopoverTrigger>
-									<InfoOutlineIcon mr="2" color="white" />
+									<InfoOutlineIcon mr="2" color="black" />
 								</PopoverTrigger>
 								<PopoverContent>
-									<PopoverBody color="#F2A900">
+									<PopoverBody color="#000">
 										راس المال الكلي في حسابك
 									</PopoverBody>
 									<PopoverArrow />
@@ -107,21 +107,21 @@ const RiskMangment = () => {
 							<Input
 								id="head"
 								type="text"
-								color={"white"}
+								color={"black"}
 								onChange={handleTitle}
 							/>
 							<InputLeftElement></InputLeftElement>
 						</InputGroup>
 					</FormControl>
 					<FormControl>
-						<FormLabel htmlFor="value" color="#F2A900">
+						<FormLabel htmlFor="value" color="#000">
 							قيمة المخاطرة
 							<Popover>
 								<PopoverTrigger>
-									<InfoOutlineIcon mr="2" color="white" />
+									<InfoOutlineIcon mr="2" color="black" />
 								</PopoverTrigger>
 								<PopoverContent>
-									<PopoverBody color="#F2A900">
+									<PopoverBody color="#000">
 										النسبه المئوية المراد المخاطره بها من اجمالي راس المال
 									</PopoverBody>
 									<PopoverArrow />
@@ -131,7 +131,7 @@ const RiskMangment = () => {
 						<InputGroup>
 							<Input
 								id="value"
-								color={"white"}
+								color={"black"}
 								type="text"
 								onChange={handleValue}
 							/>
@@ -141,14 +141,14 @@ const RiskMangment = () => {
 						</InputGroup>
 					</FormControl>
 					<FormControl>
-						<FormLabel htmlFor="lose" color="#F2A900">
+						<FormLabel htmlFor="lose" color="#000">
 							النسبة المئوية لوقف الخاسرة
 							<Popover>
 								<PopoverTrigger>
-									<InfoOutlineIcon mr="2" color="white" />
+									<InfoOutlineIcon mr="2" color="black" />
 								</PopoverTrigger>
 								<PopoverContent>
-									<PopoverBody color="#F2A900">
+									<PopoverBody color="#000">
 										النسبه المؤيه للفرق بين سعر دخول و سعر مستوى وقف الخساره
 									</PopoverBody>
 									<PopoverArrow />
@@ -159,7 +159,7 @@ const RiskMangment = () => {
 							<Input
 								id="lose"
 								type="text"
-								color={"white"}
+								color={"black"}
 								value={lose}
 								onChange={handleLose}
 							/>
@@ -169,14 +169,14 @@ const RiskMangment = () => {
 						</InputGroup>
 					</FormControl>
 					<FormControl>
-						<FormLabel htmlFor="target" color="#F2A900">
+						<FormLabel htmlFor="target" color="#000">
 							النسبة المئوية للهدف
 							<Popover>
 								<PopoverTrigger>
-									<InfoOutlineIcon mr="2" color="white" />
+									<InfoOutlineIcon mr="2" color="black" />
 								</PopoverTrigger>
 								<PopoverContent>
-									<PopoverBody color="#F2A900">
+									<PopoverBody color="#000">
 										النسبه المؤيه للفرق بين سعر دخول و سعر الهدف
 									</PopoverBody>
 									<PopoverArrow />
@@ -188,7 +188,7 @@ const RiskMangment = () => {
 								id="target"
 								type="text"
 								value={target}
-								color={"white"}
+								color={"black"}
 								onChange={handleTarget}
 							/>
 							<InputLeftElement>
@@ -198,7 +198,7 @@ const RiskMangment = () => {
 					</FormControl>
 				</Box>
 				<Box
-					boxShadow="dark-lg"
+					boxShadow="2xl"
 					p="10"
 					gap="5"
 					display="flex"
@@ -206,18 +206,18 @@ const RiskMangment = () => {
 					w={{ md: "full", base: "full" }}
 				>
 					<Stat mb="10">
-						<StatLabel color="#F2A900" fontSize={{ md: "20px", base: "14px" }}>
+						<StatLabel color="#000" fontSize={{ md: "20px", base: "14px" }}>
 							حجم الصفقة
 						</StatLabel>
-						<StatNumber color={"white"}>
+						<StatNumber color={"black"}>
 							{isNaN(Exprision) || Exprision === Infinity ? 0 : Exprision}{" "}
 						</StatNumber>
 					</Stat>
 					<Stat>
-						<StatLabel color="#F2A900" fontSize={{ md: "20px", base: "14px" }}>
+						<StatLabel color="#000" fontSize={{ md: "20px", base: "14px" }}>
 							ملاحظات
 						</StatLabel>
-						<StatNumber color={"white"}>
+						<StatNumber color={"black"}>
 							<Text pb="3">{note}</Text>
 							{lose > target ? (
 								<Text borderTop="1px solid #efefef42" pt="3">

@@ -2,13 +2,8 @@
 
 /* Global Rules */
 :root {
-  --bg-color: #191f2a;
-  --main-color: #f2a900;
-  --shadow: 0px 5px 15px #10141b;
-}
-
-body {
-  background-color: var(--bg-color);
+  --main-color: #000;
+  --shadow: 0px 5px 15px #10141b59;
 }
 
 .col-xs-6 {
@@ -53,12 +48,6 @@ body {
   }
 }
 
-.avarage .box .calc {
-  color: var(--main-color);
-  background-color: #3e434c;
-  border-color: #3e434c;
-}
-
 .avarage .box > h2 {
   color: var(--main-color);
   margin-bottom: 20px;
@@ -71,7 +60,7 @@ body {
 }
 
 .avarage .box > span {
-  color: white;
+  color: black;
   font-size: 28px;
   margin-bottom: 10px;
 }
@@ -79,7 +68,6 @@ body {
 .avarage input,
 .form-control:focus {
   color: var(--main-color);
-  background-color: var(--bg-color);
   border: none;
   outline: none;
   box-shadow: var(--shadow);

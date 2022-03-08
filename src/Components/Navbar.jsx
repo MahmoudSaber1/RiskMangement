@@ -4,7 +4,7 @@ import { Box, Button, Container } from "@chakra-ui/react";
 
 const Navbar = () => {
 	return (
-		<Box boxShadow="dark-lg">
+		<Box boxShadow="base">
 			<Container maxW="full">
 				<Box
 					display="flex"
@@ -14,12 +14,12 @@ const Navbar = () => {
 					flexWrap="wrap"
 				>
 					<Link to="/">
-						<Button variant="ghost" color="#F2A900">
+						<Button variant="ghost" color="#000">
 							ادارة المخاطر
 						</Button>
 					</Link>
 					<Link to="/risk">
-						<Button variant="ghost" color="#F2A900">
+						<Button variant="ghost" color="#000">
 							متوسط الدخول
 						</Button>
 					</Link>

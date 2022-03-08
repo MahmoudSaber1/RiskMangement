@@ -156,7 +156,7 @@ class RiskMangment extends Component {
 									<button
 										id="getButtonValue"
 										type="button"
-										className="btn btn-secondary w-100 calc"
+										className="btn btn-primary w-100 calc"
 									>
 										الناتج
 									</button>
