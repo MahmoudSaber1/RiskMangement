@@ -81,7 +81,7 @@ const RiskMangment = () => {
 				mt={{ md: "0px", base: "130px" }}
 			>
 				<Box
-					boxShadow="2xl"
+					boxShadow="dark-lg"
 					p="10"
 					gap="5"
 					display="flex"
@@ -198,7 +198,7 @@ const RiskMangment = () => {
 					</FormControl>
 				</Box>
 				<Box
-					boxShadow="2xl"
+					boxShadow="dark-lg"
 					p="10"
 					gap="5"
 					display="flex"
